@@ -247,6 +247,12 @@ public class InteractableView extends ViewGroup implements PhysicsAnimator.Physi
             case MotionEvent.ACTION_MOVE:
                 float newX = getTranslationX() + event.getX() - dragStartLocation.x;
                 float newY = getTranslationY() + event.getY() - dragStartLocation.y;
+
+                if (boundaries != null) newX = Math.min(newX, boundaries.getLeft());
+                if (boundaries != null) newX = Math.max(newX, boundaries.getRight());
+                if (boundaries != null) newY = Math.min(newY, boundaries.getBottom());
+                if (boundaries != null) newY = Math.max(newY, boundaries.getTop());
+                
                 if (horizontalOnly) {
                     newY = 0;
                 }
