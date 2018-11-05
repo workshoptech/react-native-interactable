@@ -29,6 +29,7 @@
 @property (nonatomic, copy) InteractableSpring *dragWithSpring;
 @property (nonatomic, assign) CGFloat dragToss;
 @property (nonatomic, copy) RCTDirectEventBlock onSnap;
+@property (nonatomic, copy) RCTDirectEventBlock onSnapStart;
 @property (nonatomic, copy) RCTDirectEventBlock onStop;
 @property (nonatomic, copy) RCTDirectEventBlock onAlert;
 @property (nonatomic, copy) RCTDirectEventBlock onDrag;
@@ -40,5 +41,6 @@
 - (void)setVelocity:(NSDictionary*)params;
 - (void)snapTo:(NSDictionary*)params;
 - (void)changePosition:(NSDictionary*)params;
+- (void)bringToFront:(NSDictionary*)params;
 
 @end

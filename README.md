@@ -89,7 +89,7 @@ To see the library in action you have several options:
 To run the example, clone the repo and run from the root folder:<br>
 ```
   cd real-life-example
-  npm install
+  yarn
   react-native run-ios
 ```
 
@@ -169,6 +169,12 @@ alertAreas={[{id: 'myArea', influenceArea: {top: 0}}]}
 horizontalOnly={true}
 ```
 
+* [`startOnFront`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#startOnFront-boolean) - [ANDROID ONLY] whether the view should call `bringToFront`
+
+```jsx
+startOnFront
+```
+
 * [`verticalOnly`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#verticalonly-boolean) - whether the view should be locked to vertical movement only
 
 ```jsx
@@ -181,10 +187,16 @@ verticalOnly={true}
 boundaries={{left: -100, right: 100, bounce: 0.5}}
 ```
 
-* [`onSnap`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onsnap-function) - a function called whenever the view snaps to a `snapPoints` point (after dragging)
+* [`onSnap`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onsnap-function) - a function called whenever the view finishes snapping to a `snapPoints` point (after dragging)
 
 ```jsx
 onSnap={this.onDrawerSnap}
+```
+
+* [`onSnapStart`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onsnapstart-function) - a function called whenever the view starts snapping to a `snapPoints` point (after dragging)
+
+```jsx
+onSnapStart={this.onDrawerSnapStart}
 ```
 
 * [`onStop`](https://github.com/wix/react-native-interactable/blob/master/PROPS.md#onstop-function) - a function called whenever the interaction stops (views freeze momentarily)
@@ -273,7 +285,7 @@ Takes a single argument, which is a params object containing:
 ##### `changePosition(params)` - used to imperatively set the view's position
 
 ```jsx
-instance.setPosition({x: 120, y: 40});
+instance.changePosition({x: 120, y: 40});
 ```
 
 Takes a single argument, which is a params object containing:
@@ -281,6 +293,12 @@ Takes a single argument, which is a params object containing:
  * `y` - The y coordinate.
 
 <br>
+
+##### `bringToFront()` - bring view to front (Android Only)
+
+```jsx
+instance.bringToFront();
+```
 
 ## Animating other views according to `Interactable.View` position
 

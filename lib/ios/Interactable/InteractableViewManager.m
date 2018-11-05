@@ -36,6 +36,7 @@ RCT_EXPORT_VIEW_PROPERTY(boundaries, InteractableArea)
 RCT_EXPORT_VIEW_PROPERTY(dragWithSpring, InteractableSpring)
 RCT_EXPORT_VIEW_PROPERTY(dragToss, CGFloat)
 RCT_EXPORT_VIEW_PROPERTY(onSnap, RCTDirectEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onSnapStart, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onStop, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onAlert, RCTDirectEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onDrag, RCTDirectEventBlock)
@@ -60,6 +61,12 @@ RCT_EXPORT_METHOD(setVelocity:(nonnull NSNumber *)reactTag
                          "with tag #%@", view, reactTag);
          }
      }];
+}
+
+RCT_EXPORT_METHOD(bringToFront:(nonnull NSNumber *)reactTag
+                  params:(NSDictionary*)params)
+{
+    
 }
 
 RCT_EXPORT_METHOD(snapTo:(nonnull NSNumber *)reactTag
